@@ -27,8 +27,8 @@ class RecipeController extends BaseController {
 	protected $dispatcher;
 
 	/**
- * @var RecipeForm
- */
+	 * @var RecipeForm
+	 */
 	protected $recipeForm;
 
 	/**
