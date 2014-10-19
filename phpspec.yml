@@ -1,0 +1,5 @@
+suites:
+  cookbook_suit:
+    namespace: CookBook
+    src_path: tests/unit
+    spec_prefix: tests\unit

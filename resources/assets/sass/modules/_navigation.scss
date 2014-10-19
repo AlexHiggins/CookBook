@@ -1,0 +1,38 @@
+$navbar-brand: #4b4b4b;
+
+.theme-colour {
+  color: #FB503B !important;
+}
+
+.navbar-default {
+  background-color: #fff;
+  border-color: transparent;
+
+  .navbar-brand {
+    color: $navbar-brand;
+    padding-top: 13px;
+    font-size: 1.6em;
+  }
+
+  .navbar-nav > li > a {
+    color: $navbar-brand;
+  }
+}
+
+.navbar {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  padding: 15px 0;
+  margin-bottom: 15px;
+}
+
+.navbar-header {
+  a:hover, a:focus {
+    color: #000000 !important;
+  }
+}
+
+.nav {
+  font-size: 1em;
+  text-transform: uppercase;
+}

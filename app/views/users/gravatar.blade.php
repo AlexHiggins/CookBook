@@ -1,0 +1,1 @@
+<img class="gravatar-image" src="{{ $user->present()->gravatar()  }}" />

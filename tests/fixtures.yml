@@ -1,0 +1,14 @@
+CookBook\Recipes\Recipe:
+  title: $string
+  description: Hello World $string
+  code: Hello World $string
+  user_id:
+      type: CookBook\Accounts\User
+
+CookBook\Tags\Tag:
+  name: $string$integer$string
+
+CookBook\Accounts\User:
+  email: $string$integer@$string.com
+  username: dave$string$integer
+  password: password
