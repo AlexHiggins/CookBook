@@ -56,7 +56,7 @@ class RecipeRepository extends EloquentRepository {
 		$recipe->code = $data['code'];
 		$recipe->user_id = $data['user_id'];
 		$recipe->description = $data['description'];
-
+		$recipe->resluggify();
 		$recipe->save();
 		$recipe->tags()->sync($data['tags']);
 
