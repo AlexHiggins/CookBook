@@ -1,16 +1,18 @@
-CookBook
-
--- Check back soon for a complete read me!
-
-## Table of contents
-
-## Features
-
 ## Installation
+
+1. npm install
+2. composer install
+3. php artisan migrate; php artisan db:seed
 
 ## Configuration
 
+You'll need to create a .env. file containing these variables
+
+'DISQUS_SHORTNAME', 'DB_HOST', 'DB_NAME', 'DB_USERNAME', 'DB_PASSWORD'
+
 ## Tests
+
+Create a testing database and a .env.testing file to point to this.
 
 Run vendor/bin/codecept run; vendor/bin/phpspec run
 
