@@ -70,7 +70,7 @@ class RecipeRepositoryTest extends \Codeception\TestCase\Test {
 
 		$recipe = $this->repo->edit($recipe, $newData);
 
-		$this->tester->seeRecord('recipes', ['title' => 'fooNew', 'description' => 'barNew', 'code' => '<?=$barNew?>']);
+		$this->tester->seeRecord('recipes', ['title' => 'fooNew', 'description' => 'barNew', 'code' => '<?=$barNew?>', 'slug' => 'fooNew']);
 		$this->tester->seeRecord('recipe_tag', ['recipe_id' => $recipe->id, 'tag_id' => $tagOne->id]);
 		$this->tester->dontSeeRecord('recipe_tag', ['recipe_id' => $recipe->id, 'tag_id' => $tagTwo->id]);
 	}
