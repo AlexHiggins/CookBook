@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
 
-  @include('partials.title', ['title' => 'Login'])
+	@section('title')
+		@include('partials.title', ['title' => 'Login'])
+	@stop
 
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
@@ -29,6 +31,7 @@
 
           <div class="form-group">
              {{ Form::submit('Login', ['class' => 'login-btn btn btn-primary']) }}
+             {{ link_to('/password/remind', 'Reset Your Password', ['class' => 'password-rest-btn btn btn-primary']) }}
           </div>
 
         {{ Form::close() }}
