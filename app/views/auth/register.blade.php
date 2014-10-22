@@ -4,9 +4,7 @@
 
 <div class="container">
 
-	@section('title')
-		@include('partials.title', ['title' => 'Register'])
-	@stop
+	@include('partials.title', ['title' => 'Register'])
 
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
