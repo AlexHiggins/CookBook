@@ -21,8 +21,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-			@section('title')
-			@show
     	@include('flash::message')
     </div>
   </div>

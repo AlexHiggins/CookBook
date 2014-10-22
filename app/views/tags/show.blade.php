@@ -3,11 +3,7 @@
 @section('content')
 
 <div class="container">
-
-	@section('title')
-		@include('partials.title', ['title' => "Recipes Matching Tag \"{$tag->name}\""])
-	@stop
-
+	@include('partials.title', ['title' => "Recipes Matching Tag \"{$tag->name}\""])
   @include('recipe.partials.grid')
 </div>
 

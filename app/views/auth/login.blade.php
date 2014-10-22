@@ -3,9 +3,7 @@
 @section('content')
 <div class="container">
 
-	@section('title')
-		@include('partials.title', ['title' => 'Login'])
-	@stop
+	@include('partials.title', ['title' => 'Login'])
 
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
