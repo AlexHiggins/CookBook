@@ -15,3 +15,5 @@ Route::get('tags', ['as' => 'tag', 'uses' => 'CookBook\Controllers\TagController
 Route::get('tags/{slug}', ['as' => 'tag.show', 'uses' => 'CookBook\Controllers\TagController@show']);
 
 Route::get('user/{username}', ['as' => 'user.show', 'uses' => 'CookBook\Controllers\UserController@show']);
+
+Route::controller('password', 'CookBook\Controllers\Auth\RemindersController');

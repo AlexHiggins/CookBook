@@ -1,10 +1,13 @@
 <?php namespace CookBook\Controllers\Auth;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Lang;
 use CookBook\Controllers\BaseController;
+use Laracasts\Flash\Flash;
 
 class RemindersController extends BaseController {
 
@@ -28,10 +31,12 @@ class RemindersController extends BaseController {
 		switch ($response = Password::remind(Input::only('email')))
 		{
 			case Password::INVALID_USER:
-				return Redirect::back()->with('error', Lang::get($response));
+					Flash::error(Lang::get($response));
+				return Redirect::back();
 
 			case Password::REMINDER_SENT:
-				return Redirect::back()->with('status', Lang::get($response));
+					Flash::message(Lang::get($response));
+				return Redirect::back();
 		}
 	}
 
@@ -68,10 +73,13 @@ class RemindersController extends BaseController {
 			case Password::INVALID_TOKEN:
 			case Password::INVALID_USER:
 			case Password::INVALID_PASSWORD:
-				return Redirect::back()->with('error', Lang::get($response));
+					Flash::error(Lang::get($response));
+				return Redirect::back();
 
 			case Password::PASSWORD_RESET:
-				return Redirect::to('/');
+					Flash::success('Your password has been reset. You may now log in.');
+				return Redirect::route('home');
 		}
 	}
+
 }
