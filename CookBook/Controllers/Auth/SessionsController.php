@@ -1,5 +1,6 @@
 <?php namespace CookBook\Controllers\Auth;
 
+use Laracasts\Flash\Flash;
 use CookBook\Forms\LoginForm;
 use CookBook\Controllers\BaseController;
 use Illuminate\Support\Facades\View;
@@ -45,6 +46,7 @@ class SessionsController extends BaseController {
 
 		if (Auth::attempt($input, $remember))
 		{
+			Flash::success('Welcome back!');
 			return Redirect::intended('/');
 		}
 
@@ -57,6 +59,7 @@ class SessionsController extends BaseController {
 	public function destroy()
 	{
 		Auth::logout();
+		Flash::success('You have been successfully logged out!');
 
 		return Redirect::home();
 	}

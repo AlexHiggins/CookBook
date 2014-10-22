@@ -1,5 +1,6 @@
 <?php namespace CookBook\Controllers\Auth;
 
+use Laracasts\Flash\Flash;
 use CookBook\Forms\RegisterForm;
 use CookBook\Accounts\UserRepository;
 use CookBook\Controllers\BaseController;
@@ -52,6 +53,7 @@ class RegisterController extends BaseController {
 		$user = $this->user->create($input);
 
 		Auth::login($user);
+		Flash::success("Welcome to Laravel CookBook!");
 
 		return Redirect::route('home');
 	}

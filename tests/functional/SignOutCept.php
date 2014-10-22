@@ -6,3 +6,4 @@ $I->assertTrue(Auth::check());
 $I->signOut();
 $I->assertFalse(Auth::check());
 $I->see('Login', '#navigation');
+$I->see('You have been successfully logged out!');
