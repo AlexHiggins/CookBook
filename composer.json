@@ -12,7 +12,8 @@
         "cviebrock/eloquent-sluggable": "dev-master",
         "michelf/php-markdown": "~1.4",
         "laracasts/validation": "~1.0",
-        "laracasts/utilities": "~1.0"
+        "laracasts/utilities": "~1.0",
+        "laracasts/flash": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.0",

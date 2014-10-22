@@ -6,4 +6,5 @@ $I->wantTo('Sign in to my account');
 
 $I->amOnPage('/');
 $I->signIn();
-$I->assertTrue(Auth::check()); // Improve this...
+$I->see('Welcome back!');
+$I->assertTrue(Auth::check());

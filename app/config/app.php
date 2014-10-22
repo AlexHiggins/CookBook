@@ -128,6 +128,7 @@ return array(
 		'Laracasts\Validation\ValidationServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+		'Laracasts\Flash\FlashServiceProvider'
 	),
 
 	/*
@@ -194,6 +195,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'Flash' => 'Laracasts\Flash\Flash'
 
 	),
 

@@ -13,6 +13,22 @@ class UserRepository extends EloquentRepository {
 	}
 
 	/**
+	 * @param $data
+	 * @return static
+	 */
+	public function create($data)
+	{
+		$user = $this->getNew();
+
+		$user->email = $data['email'];
+		$user->username = $data['username'];
+		$user->password = $data['password'];
+		$user->save();
+
+		return $user;
+	}
+
+	/**
 	 * @param $username
 	 * @return mixed
 	 */
