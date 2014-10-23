@@ -5364,3 +5364,8 @@ ul {
 
 .form-group a:hover, a:focus {
   color: #ffffff !important; }
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  color: #fff;
+  background-color: #FB503B;
+  border-color: #FB503B; }

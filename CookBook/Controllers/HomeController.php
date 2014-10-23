@@ -23,8 +23,9 @@ class HomeController extends BaseController {
 	 */
 	public function index()
 	{
+		$title = 'Most Recent Recipes';
 		$recipes = $this->recipe->getAllPaginated();
 
-		return View::make('home.index', compact('recipes'));
+		return View::make('home.index', compact('recipes', 'title'));
 	}
 }
