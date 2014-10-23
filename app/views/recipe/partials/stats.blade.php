@@ -7,7 +7,7 @@
 
 <b>Stats</b>
 <ul class="stats-list">
-  <li>{{ $recipe->present()->viewCount() }}</li>
+  <li><span class="glyphicon glyphicon-eye-open"></span> {{ $recipe->views }}</li>
 </ul>
 
 @if( ! $recipe->tags->isEmpty())
