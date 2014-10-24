@@ -31,6 +31,24 @@ class RecipeRepositoryTest extends \Codeception\TestCase\Test {
 	}
 
 	/** @test */
+	public function create_a_slug_automatically()
+	{
+		$recipe = Factory::create('CookBook\Recipes\Recipe', ['title' => 'Hello World 12']);
+
+		$this->assertEquals('hello-world-12', $recipe->slug);
+	}
+
+	/** @test */
+	public function handle_slugs_uniquely()
+	{
+		$recipeOne = Factory::create('CookBook\Recipes\Recipe', ['title' => 'Hello World']);
+		$recipeTwo = Factory::create('CookBook\Recipes\Recipe', ['title' => 'Hello World']);
+
+		$this->assertEquals('hello-world', $recipeOne->slug);
+		$this->assertEquals('hello-world-1', $recipeTwo->slug);
+	}
+
+	/** @test */
 	public function paginate_recipes()
 	{
 	  Factory::times(3)->create('CookBook\Recipes\Recipe');
@@ -159,12 +177,9 @@ class RecipeRepositoryTest extends \Codeception\TestCase\Test {
 			['tag_id' => $tagTwo->id, 'recipe_id' => $recipeThree->id],
 		]);
 
-		$tagTwoResults = $this->repo->getByTag($tagTwo, 1);
-
 		$this->assertCount(2, $this->repo->getByTag($tagOne, 3));
 		$this->assertCount(1, $this->repo->getByTag($tagOne, 1));
 		$this->assertCount(1, $this->repo->getByTag($tagTwo, 3));
-		$this->assertEquals($recipeThree->slug, $tagTwoResults[0]->title);
 	}
 
 }

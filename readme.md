@@ -23,8 +23,7 @@ Feel free to contribute features / bug fixes.
 ## Development Schedule
 
 1. Adding a rating system
-2. Search
-3. Sort ordering on recipies (most popular, highest rated...)
-4. Github Authentication
-5. Notifications when a recipie is posted (twitter, email)
-6. Improve tests
+2. Sort ordering on recipies (most popular, highest rated...)
+3. Github Authentication
+4. Notifications when a recipie is posted (twitter, email)
+5. Improve tests

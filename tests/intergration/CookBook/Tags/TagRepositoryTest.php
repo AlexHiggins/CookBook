@@ -37,6 +37,14 @@ class TagRepositoryTest extends \Codeception\TestCase\Test {
 	}
 
 	/** @test */
+	public function create_a_slug_automatically()
+	{
+		$tag = Factory::create('CookBook\Tags\Tag', ['name' => 'Hello World 12']);
+
+		$this->assertEquals('hello-world-12', $tag->slug);
+	}
+
+	/** @test */
 	public function return_all_tags_with_count()
 	{
 		list($tagOne, $tagTwo) = Factory::times(2)->create('CookBook\Tags\Tag');

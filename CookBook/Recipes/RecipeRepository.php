@@ -119,4 +119,5 @@ class RecipeRepository extends EloquentRepository {
 	{
 		return $this->model->with('user', 'tags')->whereSlug($slug)->firstOrFail();
 	}
+
 }
