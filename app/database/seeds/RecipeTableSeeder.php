@@ -21,7 +21,7 @@ class RecipeTableSeeder extends Seeder {
       );
     }
 
-		foreach(range(1, 30) as $index)
+		foreach(range(1, 300) as $index)
 		{
       Recipe::create([
         'title' => $faker->sentence(),

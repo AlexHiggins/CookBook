@@ -13,7 +13,7 @@ class TagRecipeTableSeeder extends Seeder {
     $tags = Tag::lists('id');
     $recipes = Recipe::lists('id');
 
-		foreach(range(1, 30) as $index)
+		foreach(range(1, 300) as $index)
 		{
       DB::table('recipe_tag')->insert([
         'recipe_id' => $faker->randomElement($recipes),
