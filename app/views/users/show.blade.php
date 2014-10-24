@@ -24,7 +24,7 @@
   </div>
 
   @if(!$recipes->isEmpty())
-    @include('partials.title', ['title' => "Recipes"])
+    @section('title', 'Recipes')
     @include('recipe.partials.grid')
   @endif
 

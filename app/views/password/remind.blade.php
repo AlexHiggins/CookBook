@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	@include('partials.title', ['title' => 'Need to reset your password?'])
+	@section('title', 'Need to reset your password?')
 
 	<div class="row">
 		<div class="col-md-2"></div>

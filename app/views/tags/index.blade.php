@@ -4,7 +4,7 @@
 
 <div class="container">
 
-	@include('partials.title', ['title' => 'Tags'])
+	@section('title', 'Tags')
 
   <div class="row">
     <div class="col-md-3"></div>

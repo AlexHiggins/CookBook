@@ -13,6 +13,7 @@
 			@include('partials.errors')
 
 			<div class="white-box">
+
 				{{ Form::open() }}
 
 					{{ Form::hidden('token', $token) }}
@@ -37,6 +38,7 @@
 					</div>
 
 				{{ Form::close() }}
+
 			</div>
 		</div>
 		<div class="col-md-2"></div>

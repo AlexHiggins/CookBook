@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-	@include('partials.title', ['title' => 'Login'])
+	@section('title', 'Login')
 
   <div class="row">
     <div class="col-md-offset-3 col-md-6">

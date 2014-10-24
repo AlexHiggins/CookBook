@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-	@include('partials.title', ['title' => $title])
+	@section('title', $title)
   @include('recipe.partials.grid')
 </div>
 
