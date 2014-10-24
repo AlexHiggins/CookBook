@@ -11,4 +11,5 @@ class EventServiceProvider extends ServiceProvider {
 	{
 		$this->app['events']->listen('recipe.viewed', 'CookBook\Events\RecipeSubscriber@recipeViewed');
 	}
+
 }

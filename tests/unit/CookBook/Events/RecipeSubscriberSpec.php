@@ -22,4 +22,5 @@ class RecipeSubscriberSpec extends ObjectBehavior {
 		$recipeRepo->increaseViewCount($recipe)->shouldBeCalledTimes(1);
 		$this->recipeViewed($recipe);
 	}
+
 }

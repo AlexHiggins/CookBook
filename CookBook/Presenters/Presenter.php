@@ -9,4 +9,5 @@ class Presenter extends \Laracasts\Presenter\Presenter {
 	{
 		return $this->created_at->diffForHumans();
 	}
+
 }

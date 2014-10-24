@@ -33,4 +33,5 @@ class Tag extends Model implements SluggableInterface {
 	{
 		return $this->belongsToMany('CookBook\Recipes\Recipe');
 	}
+
 }

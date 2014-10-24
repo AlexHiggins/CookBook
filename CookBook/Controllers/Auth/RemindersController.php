@@ -1,15 +1,26 @@
 <?php namespace CookBook\Controllers\Auth;
 
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Lang;
+use Laracasts\Flash\FlashNotifier;
 use CookBook\Controllers\BaseController;
-use Laracasts\Flash\Flash;
 
 class RemindersController extends BaseController {
+
+	/**
+	 * @var FlashNotifier
+	 */
+	protected $notifier;
+
+	/**
+	 * @param FlashNotifier $notifier
+	 */
+	public function __construct(FlashNotifier $notifier)
+	{
+		$this->notifier = $notifier;
+	}
 
 	/**
 	 * Display the password reminder view.
@@ -18,7 +29,7 @@ class RemindersController extends BaseController {
 	 */
 	public function getRemind()
 	{
-		return View::make('password.remind');
+		return $this->view('password.remind');
 	}
 
 	/**
@@ -31,12 +42,12 @@ class RemindersController extends BaseController {
 		switch ($response = Password::remind(Input::only('email')))
 		{
 			case Password::INVALID_USER:
-					Flash::error(Lang::get($response));
-				return Redirect::back();
+				$this->notifier->error(Lang::get($response));
+				return $this->redirectBack();
 
 			case Password::REMINDER_SENT:
-					Flash::message(Lang::get($response));
-				return Redirect::back();
+				$this->notifier->message(Lang::get($response));
+				return $this->redirectBack();
 		}
 	}
 
@@ -50,7 +61,7 @@ class RemindersController extends BaseController {
 	{
 		if (is_null($token)) App::abort(404);
 
-		return View::make('password.reset')->with('token', $token);
+		return $this->view('password.reset')->with('token', $token);
 	}
 
 	/**
@@ -73,12 +84,12 @@ class RemindersController extends BaseController {
 			case Password::INVALID_TOKEN:
 			case Password::INVALID_USER:
 			case Password::INVALID_PASSWORD:
-					Flash::error(Lang::get($response));
-				return Redirect::back();
+				$this->notifier->error(Lang::get($response));
+				return $this->redirectBack();
 
 			case Password::PASSWORD_RESET:
-					Flash::success('Your password has been reset. You may now log in.');
-				return Redirect::route('home');
+				$this->notifier->success('Your password has been reset. You may now log in.');
+				return $this->redirectRoute('home');
 		}
 	}
 

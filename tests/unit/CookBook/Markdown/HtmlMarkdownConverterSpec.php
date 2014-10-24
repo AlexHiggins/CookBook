@@ -31,4 +31,5 @@ class HtmlMarkdownConverterSpec extends ObjectBehavior {
 			"<p>I strongly recommend against using any <code>&lt;blink&gt;</code> tags.</p>\n"
 		);
 	}
+
 }

@@ -1,7 +1,6 @@
 <?php namespace CookBook\Controllers;
 
 use CookBook\Recipes\RecipeRepository;
-use Illuminate\Support\Facades\View;
 
 class HomeController extends BaseController {
 
@@ -26,6 +25,7 @@ class HomeController extends BaseController {
 		$title = 'Most Recent Recipes';
 		$recipes = $this->recipe->getAllPaginated();
 
-		return View::make('home.index', compact('recipes', 'title'));
+		return $this->view('home.index', compact('recipes', 'title'));
 	}
+
 }

@@ -18,7 +18,6 @@
     "require-dev": {
         "fzaninotto/faker": "~1.0",
         "laracasts/testdummy": "1.*",
-        "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.0",
         "way/generators": "~2.0",
         "codeception/codeception": "~2.0"
@@ -34,7 +33,6 @@
             "CookBook\\": "CookBook"
         }
     },
-
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",

@@ -1,6 +1,5 @@
 <?php namespace CookBook\Controllers;
 
-use Illuminate\Support\Facades\View;
 use CookBook\Tags\TagRepository;
 use CookBook\Recipes\RecipeRepository;
 
@@ -33,7 +32,7 @@ class TagController extends BaseController {
 	{
 		$tags = $this->tag->getAllTagsWithCount();
 
-		return View::make('tags.index', compact('tags'));
+		return $this->view('tags.index', compact('tags'));
 	}
 
 	/**
@@ -45,6 +44,7 @@ class TagController extends BaseController {
 		$tag = $this->tag->whereSlug($slug);
 		$recipes = $this->recipe->getByTag($tag);
 
-		return View::make('tags.show', compact('tag', 'recipes'));
+		return $this->view('tags.show', compact('tag', 'recipes'));
 	}
+
 }

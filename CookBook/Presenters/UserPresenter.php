@@ -17,4 +17,5 @@ class UserPresenter extends Presenter {
 	{
 		return $this->created_at->diffForHumans();
 	}
+
 }

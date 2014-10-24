@@ -33,4 +33,5 @@ class TagRepository extends EloquentRepository {
 			->orderBy('count', 'desc')
 			->get(['tags.name', 'tags.id', 'tags.slug', DB::raw('COUNT(recipes.id) as count')]);
 	}
+
 }

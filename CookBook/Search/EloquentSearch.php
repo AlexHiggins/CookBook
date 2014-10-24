@@ -29,7 +29,7 @@ class EloquentSearch implements Search {
 			->orWhere('description', 'LIKE', '%'.$term.'%')
 			->orWhere('title', 'LIKE', '%'.$term.'%')
 			->orWhereHas('tags', function ($query) use ($term) {
-					$query->where('name', 'LIKE', '%' . $term . '%');
+					$query->where('name', 'LIKE', '%'.$term.'%');
 				})
 			->orderBy('created_at', 'desc')
 			->orderBy('title', 'asc')

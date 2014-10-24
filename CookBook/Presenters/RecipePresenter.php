@@ -49,4 +49,5 @@ class RecipePresenter extends Presenter {
 	{
 		return App::make('CookBook\Markdown\HtmlMarkdownConverter')->convertMarkdownToHtml($content);
 	}
+
 }

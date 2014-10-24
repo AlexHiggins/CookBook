@@ -43,4 +43,5 @@ abstract class EloquentRepository {
 	{
 		return $this->model->whereSlug($slug)->firstOrFail();
 	}
+
 }

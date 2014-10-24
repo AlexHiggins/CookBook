@@ -1,6 +1,5 @@
 <?php namespace CookBook\Controllers;
 
-use Illuminate\Support\Facades\View;
 use CookBook\Accounts\UserRepository;
 use CookBook\Recipes\RecipeRepository;
 
@@ -35,6 +34,7 @@ class UserController extends BaseController {
 		$user = $this->user->whereUserName($username);
 		$recipes = $this->recipe->getByUser($user);
 
-		return View::make('users.show', compact('user', 'recipes'));
+		return $this->view('users.show', compact('user', 'recipes'));
 	}
+
 }

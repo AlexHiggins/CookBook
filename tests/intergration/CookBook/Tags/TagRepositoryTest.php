@@ -66,4 +66,5 @@ class TagRepositoryTest extends \Codeception\TestCase\Test {
 		$this->assertEquals(1, $tagResultTwo->count);
 		$this->assertEquals($tagTwo->name, $tagResultTwo->name);
 	}
+
 }

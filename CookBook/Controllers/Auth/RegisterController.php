@@ -1,15 +1,18 @@
 <?php namespace CookBook\Controllers\Auth;
 
-use Laracasts\Flash\Flash;
+use Illuminate\Http\Request;
+use Illuminate\Auth\AuthManager;
+use Laracasts\Flash\FlashNotifier;
 use CookBook\Forms\RegisterForm;
 use CookBook\Accounts\UserRepository;
 use CookBook\Controllers\BaseController;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends BaseController {
+
+	/**
+	 * @var AuthManager
+	 */
+	protected $auth;
 
 	/**
 	 * @var UserRepository
@@ -22,13 +25,34 @@ class RegisterController extends BaseController {
 	protected $registerForm;
 
 	/**
+	 * @var FlashNotifier
+	 */
+	protected $notifier;
+
+	/**
+	 * @var Request
+	 */
+	protected $request;
+
+	/**
+	 * @param AuthManager    $auth
 	 * @param UserRepository $user
 	 * @param RegisterForm   $registerForm
+	 * @param FlashNotifier  $notifier
+	 * @param Request        $request
 	 */
-	public function __construct(UserRepository $user, RegisterForm $registerForm)
+	public function __construct(
+		AuthManager $auth,
+		UserRepository $user,
+		RegisterForm $registerForm,
+		FlashNotifier $notifier,
+		Request $request)
 	{
+		$this->auth = $auth;
 		$this->user = $user;
 		$this->registerForm = $registerForm;
+		$this->notifier = $notifier;
+		$this->request = $request;
 
 		$this->beforeFilter('guest');
 		$this->beforeFilter('csrf', ['on' => 'post']);
@@ -39,7 +63,7 @@ class RegisterController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('auth.register');
+		return $this->view('auth.register');
 	}
 
 	/**
@@ -47,14 +71,15 @@ class RegisterController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::get();
+		$input = $this->request->all();
 
 		$this->registerForm->validate($input);
 		$user = $this->user->create($input);
 
-		Auth::login($user);
-		Flash::success("Welcome to Laravel CookBook!");
+		$this->auth->login($user);
+		$this->notifier->success('Welcome to Laravel CookBook!');
 
-		return Redirect::route('home');
+		return $this->redirectRoute('home');
 	}
+
 }

@@ -42,4 +42,12 @@ class UserRepositoryTest extends \Codeception\TestCase\Test {
 		$this->tester->seeRecord('users', ['username' => 'foo', 'email' => 'foo@example.com']);
 	}
 
+	/** @test */
+	public function it_hashes_passwords_on_creation()
+	{
+		$user = Factory::create('CookBook\Accounts\User', ['password' => 'foo']);
+
+		$this->assertNotEquals('foo', $user->password);
+	}
+
 }

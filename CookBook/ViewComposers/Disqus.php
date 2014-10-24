@@ -9,4 +9,5 @@ class Disqus {
 	{
 		$view->with(['shortName' => getenv('DISQUS_SHORTNAME')]);
 	}
+
 }

@@ -25,4 +25,5 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		$this->app['view']->share('signedIn', Auth::user());
 		$this->app['view']->share('currentUser', Auth::user());
 	}
+
 }

@@ -1,14 +1,17 @@
 <?php namespace CookBook\Controllers\Auth;
 
-use Laracasts\Flash\Flash;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Http\Request;
+use Laracasts\Flash\FlashNotifier;
 use CookBook\Forms\LoginForm;
 use CookBook\Controllers\BaseController;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends BaseController {
+
+	/**
+	 * @var AuthManager
+	 */
+	protected $auth;
 
 	/**
 	 * @var LoginForm
@@ -16,11 +19,31 @@ class SessionsController extends BaseController {
 	protected $loginForm;
 
 	/**
-	 * @param LoginForm $loginForm
+	 * @var FlashNotifier
 	 */
-	public function __construct(LoginForm $loginForm)
+	protected $notifier;
+
+	/**
+	 * @var Request
+	 */
+	protected $request;
+
+	/**
+	 * @param AuthManager   $auth
+	 * @param LoginForm     $loginForm
+	 * @param FlashNotifier $notifier
+	 * @param Request       $request
+	 */
+	public function __construct(
+		AuthManager $auth,
+		LoginForm $loginForm,
+		FlashNotifier $notifier,
+		Request $request)
 	{
+		$this->auth = $auth;
 		$this->loginForm = $loginForm;
+		$this->notifier = $notifier;
+		$this->request = $request;
 
 		$this->beforeFilter('csrf', ['on' => 'post']);
 		$this->beforeFilter('guest', ['except' => 'destroy']);
@@ -31,7 +54,7 @@ class SessionsController extends BaseController {
 	 */
 	public function index()
 	{
-		return View::make('auth.login');
+		return $this->view('auth.login');
 	}
 
 	/**
@@ -39,18 +62,18 @@ class SessionsController extends BaseController {
 	 */
 	public function store()
 	{
-		$remember = Input::get('remember', false);
-		$input = Input::only('username', 'password');
+		$remember = $this->request->get('remember', false);
+		$input = $this->request->only('username', 'password');
 
 		$this->loginForm->validate($input);
 
-		if (Auth::attempt($input, $remember))
+		if ($this->auth->attempt($input, $remember))
 		{
-			Flash::success('Welcome back!');
-			return Redirect::intended('/');
+			$this->notifier->success('Welcome back!');
+			return $this->redirectIntended();
 		}
 
-		return Redirect::route('login')->withErrors('The credentials you entered did not match our records');
+		return $this->redirectBack('login')->withErrors('The credentials you entered did not match our records');
 	}
 
 	/**
@@ -58,9 +81,10 @@ class SessionsController extends BaseController {
 	 */
 	public function destroy()
 	{
-		Auth::logout();
-		Flash::success('You have been successfully logged out!');
+		$this->auth->logout();
+		$this->notifier->success('You have been successfully logged out!');
 
-		return Redirect::home();
+		return $this->redirectRoute('home');
 	}
+
 }
