@@ -20,11 +20,3 @@
 </div>
 
 @stop
-
-@section('js')
-{{ HTML::script('js/vendor/chosen.js') }}
-{{ HTML::script('js/vendor/epiceditor.js') }}
-
-{{ HTML::script('js/chosen.js') }}
-{{ HTML::script('js/epiceditor.js') }}
-@stop

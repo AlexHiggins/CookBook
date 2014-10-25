@@ -1,7 +1,6 @@
 <?php namespace CookBook\Controllers;
 
 use CookBook\Contracts\Search;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Input;
 
 class SearchController extends BaseController {

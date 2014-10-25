@@ -10,7 +10,7 @@
 
 	@if($query != '')
 		@section('title', $title)
-		@include('recipe.partials.grid')
+		@include('recipe.grid.container')
 	@else
 		@section('title', 'Please provide a search term')
 	@endif

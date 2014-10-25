@@ -7,7 +7,6 @@
   <meta name="author" content="">
   <title>Laravel Cookbook</title>
   {{ HTML::style('css/app.css') }}
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
   <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -19,7 +18,7 @@
 @include('layout.header')
 @include('partials.notifications')
 
-<div class="container">
+<div class="container title-container">
 	<div class="row">
 		<div class="col-md-8">
 			@include('partials.title')
@@ -33,9 +32,7 @@
 @yield('content')
 @include('layout.footer')
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script>$('#flash-overlay-modal').modal();</script>
+{{ HTML::script('js/all.min.js') }}
 @section('js')
 @show
 

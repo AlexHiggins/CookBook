@@ -1,1 +1,1 @@
-<img class="gravatar-image" src="{{ $user->present()->gravatar()  }}" />
+<img class="gravatar-image" alt="{{{ $user->username }}}" src="{{ $user->present()->gravatar()  }}" />
