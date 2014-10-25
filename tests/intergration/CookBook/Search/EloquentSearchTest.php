@@ -50,6 +50,19 @@ class EloquentSearchTest extends \Codeception\TestCase\Test {
 	}
 
 	/** @test */
+	public function it_searches_by_recipe_owner()
+	{
+		list($recipeOne, $recipeTwo) = Factory::times(2)->create('CookBook\Recipes\Recipe');
+
+		$resultOne = $this->repo->searchByTermPaginated($recipeOne->user->username);
+		$resultTwo = $this->repo->searchByTermPaginated($recipeTwo->user->username);
+
+		$this->assertEquals($recipeOne->user->username, $resultOne[0]->user->username);
+		$this->assertEquals($recipeOne->user->username, $resultTwo[0]->user->username);
+	}
+
+
+	/** @test */
 	public function it_searches_by_recipe_tag()
 	{
 		list($tagOne, $tagTwo) = Factory::times(2)->create('CookBook\Tags\Tag');

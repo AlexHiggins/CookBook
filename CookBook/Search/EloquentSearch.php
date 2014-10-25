@@ -31,6 +31,9 @@ class EloquentSearch implements Search {
 			->orWhereHas('tags', function ($query) use ($term) {
 					$query->where('name', 'LIKE', '%'.$term.'%');
 				})
+			->orWhereHas('user', function ($query) use ($term) {
+					$query->where('username', 'LIKE', '%'.$term.'%');
+				})
 			->orderBy('created_at', 'desc')
 			->orderBy('title', 'asc')
 			->paginate($howMany);
