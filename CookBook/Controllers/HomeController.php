@@ -25,7 +25,7 @@ class HomeController extends BaseController {
 		$title = 'Most Recent Recipes';
 		$recipes = $this->recipe->getAllPaginated();
 
-		return $this->view('home.index', compact('recipes', 'title'));
+		return $this->view('recipe.grid', compact('recipes', 'title'));
 	}
 
 }

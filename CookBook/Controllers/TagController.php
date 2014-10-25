@@ -43,8 +43,9 @@ class TagController extends BaseController {
 	{
 		$tag = $this->tag->whereSlug($slug);
 		$recipes = $this->recipe->getByTag($tag);
+		$title = "Recipes Matching Tag \"{$tag->name}\"";
 
-		return $this->view('tags.show', compact('tag', 'recipes'));
+		return $this->view('recipe.grid', compact('tag', 'recipes', 'title'));
 	}
 
 }

@@ -17,7 +17,19 @@
 <body>
 
 @include('layout.header')
-@include('partials.title')
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			@include('partials.title')
+		</div>
+		<div class="col-md-4">
+			@yield('search')
+		</div>
+	</div>
+</div>
+
 @include('partials.notifications')
 
 @yield('content')
