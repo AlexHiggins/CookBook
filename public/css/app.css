@@ -6454,6 +6454,11 @@ pre {
 
   .user-stats {
     margin-bottom: 0 !important; }
+
+  .information-container .user-image {
+    display: none; }
+  .information-container .recipe-title-container {
+    padding-left: 0; }
  }
 
 .recipe-row {
