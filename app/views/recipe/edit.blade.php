@@ -14,6 +14,7 @@
 					@include('recipe.partials.form', ['buttonText' => 'Update'])
         {{ Form::close() }}
       </div>
+
     </div>
     <div class="col-md-2"></div>
   </div>

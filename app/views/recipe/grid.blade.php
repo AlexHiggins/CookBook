@@ -8,7 +8,7 @@
 
 <div class="container">
 	@section('title', $title)
-	@include('recipe.partials.grid')
+	@include('recipe.grid.container')
 </div>
 
 @stop

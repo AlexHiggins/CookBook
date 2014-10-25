@@ -17,7 +17,7 @@
 <body>
 
 @include('layout.header')
-
+@include('partials.notifications')
 
 <div class="container">
 	<div class="row">
@@ -30,10 +30,7 @@
 	</div>
 </div>
 
-@include('partials.notifications')
-
 @yield('content')
-
 @include('layout.footer')
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
