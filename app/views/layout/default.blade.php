@@ -32,7 +32,7 @@
 @yield('content')
 @include('layout.footer')
 
-{{ HTML::script('js/all.min.js') }}
+{{ HTML::script('js/all.js') }}
 @section('js')
 @show
 
