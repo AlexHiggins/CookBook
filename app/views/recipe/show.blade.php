@@ -1,4 +1,5 @@
 @extends('layout.default')
+@section('description', $recipe->title)
 
 @section('content')
 
