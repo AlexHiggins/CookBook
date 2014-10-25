@@ -19,6 +19,6 @@
 
 <div class="row">
   <div class=" col-md-12 text-center">
-    {{ $recipes->links() }}
+    {{ $recipes->appends(Request::except('page'))->links() }}
   </div>
 </div>
