@@ -22,3 +22,7 @@
 <div class="form-group">
 	{{ Form::submit(isset($buttonText) ? $buttonText : 'Create', ['class' => 'btn btn-primary']) }}
 </div>
+
+@section('js')
+<script>$(document).ready(function() {editor.load();});</script>
+@stop
