@@ -1,17 +1,12 @@
 <?php namespace CookBook\Controllers\Auth;
 
-use Illuminate\Auth\AuthManager;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\FlashNotifier;
 use CookBook\Forms\LoginForm;
 use CookBook\Controllers\BaseController;
 
 class SessionsController extends BaseController {
-
-	/**
-	 * @var AuthManager
-	 */
-	protected $auth;
 
 	/**
 	 * @var LoginForm
@@ -24,26 +19,13 @@ class SessionsController extends BaseController {
 	protected $notifier;
 
 	/**
-	 * @var Request
-	 */
-	protected $request;
-
-	/**
-	 * @param AuthManager   $auth
 	 * @param LoginForm     $loginForm
 	 * @param FlashNotifier $notifier
-	 * @param Request       $request
 	 */
-	public function __construct(
-		AuthManager $auth,
-		LoginForm $loginForm,
-		FlashNotifier $notifier,
-		Request $request)
+	public function __construct(LoginForm $loginForm, FlashNotifier $notifier)
 	{
-		$this->auth = $auth;
 		$this->loginForm = $loginForm;
 		$this->notifier = $notifier;
-		$this->request = $request;
 
 		$this->beforeFilter('csrf', ['on' => 'post']);
 		$this->beforeFilter('guest', ['except' => 'destroy']);
@@ -62,12 +44,12 @@ class SessionsController extends BaseController {
 	 */
 	public function store()
 	{
-		$remember = $this->request->get('remember', false);
-		$input = $this->request->only('username', 'password');
+		$remember = Input::get('remember', false);
+		$input = Input::only('username', 'password');
 
 		$this->loginForm->validate($input);
 
-		if ($this->auth->attempt($input, $remember))
+		if (Auth::attempt($input, $remember))
 		{
 			$this->notifier->success('Welcome back!');
 			return $this->redirectIntended();
@@ -81,7 +63,7 @@ class SessionsController extends BaseController {
 	 */
 	public function destroy()
 	{
-		$this->auth->logout();
+		Auth::logout();
 		$this->notifier->success('You have been successfully logged out!');
 
 		return $this->redirectRoute('home');

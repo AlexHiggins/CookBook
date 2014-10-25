@@ -1,18 +1,13 @@
 <?php namespace CookBook\Controllers;
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Events\Dispatcher;
-use Illuminate\Auth\AuthManager;
-use Illuminate\Http\Request;
 use CookBook\Tags\TagRepository;
 use CookBook\Forms\RecipeForm;
 use CookBook\Recipes\RecipeRepository;
 
 class RecipeController extends BaseController {
-
-	/**
-	 * @var AuthManager
-	 */
-	protected $auth;
 
 	/**
 	 * @var RecipeRepository
@@ -35,32 +30,21 @@ class RecipeController extends BaseController {
 	protected $recipeForm;
 
 	/**
-	 * @var Request
-	 */
-	protected $request;
-
-	/**
-	 * @param AuthManager      $auth
 	 * @param RecipeRepository $recipe
 	 * @param TagRepository    $tag
 	 * @param Dispatcher       $dispatcher
 	 * @param RecipeForm       $recipeForm
-	 * @param Request          $request
 	 */
 	public function __construct(
-		AuthManager $auth,
 		RecipeRepository $recipe,
 		TagRepository $tag,
 		Dispatcher $dispatcher,
-		RecipeForm $recipeForm,
-		Request $request)
+		RecipeForm $recipeForm)
 	{
-		$this->auth = $auth;
 		$this->recipe = $recipe;
 		$this->tag = $tag;
 		$this->dispatcher = $dispatcher;
 		$this->recipeForm = $recipeForm;
-		$this->request = $request;
 
 		$this->beforeFilter('auth', ['except' => 'show']);
 		$this->beforeFilter('recipe.owner', ['only' => 'update']);
@@ -82,7 +66,7 @@ class RecipeController extends BaseController {
 	 */
 	public function store()
 	{
-		$recipe = array_add($this->request->all(), 'user_id', $this->auth->id());
+		$recipe = array_add(Input::all(), 'user_id', Auth::id());
 
 		$this->recipeForm->validate($recipe);
 		$recipe = $this->recipe->create($recipe);
@@ -125,7 +109,7 @@ class RecipeController extends BaseController {
 	 */
 	public function update($slug)
 	{
-		$input = array_add($this->request->all(), 'user_id', $this->auth->id());
+		$input = array_add(Input::all(), 'user_id', Auth::id());
 		$this->recipeForm->validate($input);
 
 		$recipe = $this->recipe->whereSlug($slug);
