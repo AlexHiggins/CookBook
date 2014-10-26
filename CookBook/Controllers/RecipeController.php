@@ -56,7 +56,7 @@ class RecipeController extends BaseController {
 		$this->notifier = $notifier;
 
 		$this->beforeFilter('auth', ['except' => 'show']);
-		$this->beforeFilter('recipe.owner', ['only' => 'update', 'destroy']);
+		$this->beforeFilter('recipe.owner', ['only' => ['update', 'edit', 'destroy']]);
 	}
 
 	/**
