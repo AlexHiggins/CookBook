@@ -4,4 +4,4 @@
 
 @section('js')
 <script>hljs.initHighlightingOnLoad();</script>
-@stop
+@append
