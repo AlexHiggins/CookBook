@@ -56,7 +56,7 @@ class RecipeController extends BaseController {
 		$this->notifier = $notifier;
 
 		$this->beforeFilter('auth', ['except' => 'show']);
-		$this->beforeFilter('recipe.owner', ['only' => ['update', 'edit', 'destroy']]);
+		$this->beforeFilter('recipe.owner', ['only' => ['update', 'edit']]);
 	}
 
 	/**
@@ -125,20 +125,6 @@ class RecipeController extends BaseController {
 		$recipe = $this->recipe->edit($recipe, $input);
 
 		return $this->redirectRoute('recipe.show', $recipe->slug);
-	}
-
-	/**
-	 * @param $slug
-	 * @return mixed
-	 */
-	public function destroy($slug)
-	{
-		$recipe = $this->recipe->whereSlug($slug);
-
-		$this->recipe->delete($recipe);
-		$this->notifier->success('Your recipe has been successfully deleted');
-
-		return $this->redirectRoute('home');
 	}
 
 }

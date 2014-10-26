@@ -10,7 +10,6 @@ Route::get('register', ['as' => 'register', 'uses' => 'CookBook\Controllers\Auth
 Route::post('register', ['as' => 'register', 'uses' => 'CookBook\Controllers\Auth\RegisterController@store']);
 
 Route::resource('recipe', 'CookBook\Controllers\RecipeController', ['except' => ['index', 'destroy']]);
-Route::get('recipe/{recipe}/destroy', ['as' => 'recipe.destroy', 'uses' => 'CookBook\Controllers\RecipeController@destroy']);
 
 Route::get('tags', ['as' => 'tag', 'uses' => 'CookBook\Controllers\TagController@index']);
 Route::get('tags/{slug}', ['as' => 'tag.show', 'uses' => 'CookBook\Controllers\TagController@show']);

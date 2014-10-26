@@ -3,7 +3,6 @@
 
 	<ul class="stats-list">
 		<li>{{ link_to_route('recipe.edit', 'edit', ['slug' => $recipe->slug], ['class' => 'theme-colour']) }}</li>
-		<li>{{ link_to_route('recipe.destroy', 'delete', ['slug' => $recipe->slug], ['class' => 'theme-colour']) }}</li>
 	</ul>
 @endif
 
