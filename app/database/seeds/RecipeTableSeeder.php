@@ -21,10 +21,10 @@ class RecipeTableSeeder extends Seeder {
       );
     }
 
-		foreach(range(1, 300) as $index)
+		foreach(range(1, 150) as $index)
 		{
       Recipe::create([
-        'title' => $faker->sentence(5),
+        'title' => $faker->sentence(6),
         'description' => $faker->paragraph(),
         'user_id' => $faker->randomElement($users),
         'code' => $files[$faker->randomElement($md_files)]
