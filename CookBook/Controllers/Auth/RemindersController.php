@@ -20,6 +20,8 @@ class RemindersController extends BaseController {
 	public function __construct(FlashNotifier $notifier)
 	{
 		$this->notifier = $notifier;
+
+		$this->beforeFilter('csrf', [ 'on' => 'post' ]);
 	}
 
 	/**

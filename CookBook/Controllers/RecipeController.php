@@ -55,6 +55,7 @@ class RecipeController extends BaseController {
 		$this->recipeForm = $recipeForm;
 		$this->notifier = $notifier;
 
+		$this->beforeFilter('csrf', [ 'on' => 'post' ]);
 		$this->beforeFilter('auth', ['except' => 'show']);
 		$this->beforeFilter('recipe.owner', ['only' => ['update', 'edit']]);
 	}
