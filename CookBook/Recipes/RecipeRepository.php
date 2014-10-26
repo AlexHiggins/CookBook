@@ -64,6 +64,15 @@ class RecipeRepository extends EloquentRepository {
 	}
 
 	/**
+	 * @param Recipe $recipe
+	 * @throws \Exception
+	 */
+	public function delete(Recipe $recipe)
+	{
+		$recipe->delete();
+	}
+
+	/**
 	 * @param Tag $tag
 	 * @param int $howMany
 	 * @return mixed

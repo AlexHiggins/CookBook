@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Events\Dispatcher;
 use CookBook\Tags\TagRepository;
 use CookBook\Forms\RecipeForm;
+use Laracasts\Flash\FlashNotifier;
 use CookBook\Recipes\RecipeRepository;
 
 class RecipeController extends BaseController {
@@ -30,24 +31,32 @@ class RecipeController extends BaseController {
 	protected $recipeForm;
 
 	/**
+	 * @var FlashNotifier
+	 */
+	protected $notifier;
+
+	/**
 	 * @param RecipeRepository $recipe
 	 * @param TagRepository    $tag
 	 * @param Dispatcher       $dispatcher
 	 * @param RecipeForm       $recipeForm
+	 * @param FlashNotifier    $notifier
 	 */
 	public function __construct(
 		RecipeRepository $recipe,
 		TagRepository $tag,
 		Dispatcher $dispatcher,
-		RecipeForm $recipeForm)
+		RecipeForm $recipeForm,
+		FlashNotifier $notifier)
 	{
 		$this->recipe = $recipe;
 		$this->tag = $tag;
 		$this->dispatcher = $dispatcher;
 		$this->recipeForm = $recipeForm;
+		$this->notifier = $notifier;
 
 		$this->beforeFilter('auth', ['except' => 'show']);
-		$this->beforeFilter('recipe.owner', ['only' => 'update']);
+		$this->beforeFilter('recipe.owner', ['only' => 'update', 'destroy']);
 	}
 
 	/**
@@ -116,6 +125,20 @@ class RecipeController extends BaseController {
 		$recipe = $this->recipe->edit($recipe, $input);
 
 		return $this->redirectRoute('recipe.show', $recipe->slug);
+	}
+
+	/**
+	 * @param $slug
+	 * @return mixed
+	 */
+	public function destroy($slug)
+	{
+		$recipe = $this->recipe->whereSlug($slug);
+
+		$this->recipe->delete($recipe);
+		$this->notifier->success('Your recipe has been successfully deleted');
+
+		return $this->redirectRoute('home');
 	}
 
 }

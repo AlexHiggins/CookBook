@@ -122,6 +122,25 @@ class RecipeRepositoryTest extends \Codeception\TestCase\Test {
 	}
 
 	/** @test */
+	public function it_deletes_a_recipe()
+	{
+		$tag = Factory::create('CookBook\Tags\Tag');
+		$recipe = Factory::create('CookBook\Recipes\Recipe');
+
+		DB::table('recipe_tag')->insert([
+				['tag_id' => $tag->id, 'recipe_id' => $recipe->id],
+		]);
+
+		$this->tester->seeRecord('recipes', ['title' => $recipe->title]);
+		$this->tester->seeRecord('recipe_tag', ['tag_id' => $tag->id, 'recipe_id' => $recipe->id]);
+
+		$this->repo->delete($recipe);
+
+		$this->tester->dontSeeRecord('recipes', ['title' => $recipe->title]);
+		$this->tester->dontSeeRecord('recipe_tag', ['tag_id' => $tag->id, 'recipe_id' => $recipe->id]);
+	}
+
+	/** @test */
 	public function get_recipes_by_user_paginated()
 	{
 		$user = Factory::create('CookBook\Accounts\User');
