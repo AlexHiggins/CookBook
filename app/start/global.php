@@ -53,6 +53,17 @@ App::error(function(Laracasts\Validation\FormValidationException $exception, $co
 {
 	return Redirect::back()->withInput()->withErrors($exception->getErrors());
 });
+
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
+{
+	return Response::view('errors.missing', ['url' => Request::url()], 404);
+});
+
+App::missing(function($exception)
+{
+	return Response::view('errors.missing', ['url' => Request::url()], 404);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
