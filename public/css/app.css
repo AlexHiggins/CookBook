@@ -6974,5 +6974,8 @@ ul {
   background-color: #FB503B;
   border-color: #FB503B; }
 
+.btn {
+  line-height: 1.43857; }
+
 .search-box {
   margin-bottom: 15px; }
