@@ -6449,9 +6449,6 @@ pre {
   .recipe-row {
     margin-bottom: 0 !important; }
 
-  .search-box {
-    margin-bottom: 15px; }
-
   .user-stats {
     margin-bottom: 0 !important; }
 
@@ -6977,5 +6974,5 @@ ul {
 .btn {
   line-height: 1.43857; }
 
-.search-box {
-  margin-bottom: 15px; }
+.search-box, .search {
+  margin-bottom: 15px !important; }
