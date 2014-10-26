@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h2 class="text-center">Doh! This page doesn't exist </h2>
-			<p class="text-center lead">Don't worry, you can go back to our {{ link_to_route('home', 'homepage') }} and forget that this happened.</p>
+			<p class="text-center lead">Don't worry, you can go back to our {{ link_to_route('home', 'homepage') }} and forget that this ever happened.</p>
 		</div>
 	</div>
 
@@ -16,7 +16,7 @@
 			{{ HTML::image('images/not-found.png', '404 image', ['class' => 'responsive not-found-image']) }}
 		</div>
 	</div>
-	
+
 </div>
 
 @stop

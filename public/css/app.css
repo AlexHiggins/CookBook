@@ -6977,4 +6977,5 @@ ul {
   margin-bottom: 15px; }
 
 .not-found-image {
-  margin-top: 20px; }
+  margin-top: 40px;
+  max-width: 500px; }
