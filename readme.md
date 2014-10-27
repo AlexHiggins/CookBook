@@ -10,6 +10,8 @@ You'll need to create a .env. file containing these variables
 
 'DISQUS_SHORTNAME', 'DB_HOST', 'DB_NAME', 'DB_USERNAME', 'DB_PASSWORD'
 
+If you are sending emails you'll need to be aware of the mail configuration
+
 ## Tests
 
 Create a testing database and a .env.testing file to point to this.

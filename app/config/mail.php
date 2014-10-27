@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'log',
+	'driver' => 'mandrill',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'your.email@example.com', 'name' => 'CookBook'),
+	'from' => array('address' => getenv('SITE_EMAIL'), 'name' => 'Laravel CookBook'),
 
 	/*
 	|--------------------------------------------------------------------------
