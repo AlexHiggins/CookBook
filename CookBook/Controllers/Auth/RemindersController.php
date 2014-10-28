@@ -21,6 +21,7 @@ class RemindersController extends BaseController {
 	{
 		$this->notifier = $notifier;
 
+		$this->beforeFilter('guest');
 		$this->beforeFilter('csrf', [ 'on' => 'post' ]);
 	}
 
