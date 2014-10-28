@@ -80,8 +80,7 @@ class RemindersController extends BaseController {
 	{
 		$credentials = Input::only('email', 'password', 'password_confirmation', 'token');
 
-		$response = Password::reset($credentials, function($user, $password)
-		{
+		$response = Password::reset($credentials, function($user, $password) {
 			$user->password = $password;
 			$user->save();
 		});
