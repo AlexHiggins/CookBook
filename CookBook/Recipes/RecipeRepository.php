@@ -20,8 +20,7 @@ class RecipeRepository extends EloquentRepository {
 	 */
 	public function increaseViewCount(Recipe $recipe)
 	{
-		$recipe->views++;
-		$recipe->save();
+		$recipe->increment('views', 1);
 
 		return $recipe;
 	}
