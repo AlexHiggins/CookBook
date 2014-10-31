@@ -3,7 +3,7 @@
 use CookBook\Accounts\UserRepository;
 use CookBook\Recipes\RecipeRepository;
 
-class UserController extends BaseController {
+class ProfileController extends BaseController {
 
 	/**
 	 * @var UserRepository

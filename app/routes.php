@@ -14,7 +14,7 @@ Route::resource('recipe', 'CookBook\Controllers\RecipeController', ['except' => 
 Route::get('tags', ['as' => 'tag', 'uses' => 'CookBook\Controllers\TagController@index']);
 Route::get('tags/{slug}', ['as' => 'tag.show', 'uses' => 'CookBook\Controllers\TagController@show']);
 
-Route::get('user/{username}', ['as' => 'user.show', 'uses' => 'CookBook\Controllers\UserController@show']);
+Route::get('profile/{username}', ['as' => 'profile.show', 'uses' => 'CookBook\Controllers\ProfileController@show']);
 Route::get('search', ['as' => 'search.index', 'uses' => 'CookBook\Controllers\SearchController@index']);
 
 Route::controller('password', 'CookBook\Controllers\Auth\RemindersController');
