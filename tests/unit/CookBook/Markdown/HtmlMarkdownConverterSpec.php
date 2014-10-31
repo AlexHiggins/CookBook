@@ -11,7 +11,7 @@ class HtmlMarkdownConverterSpec extends ObjectBehavior {
 		$this->beConstructedWith(new MarkdownExtra);
 	}
 
-	function it_is_initializable()
+	public function it_is_initializable()
 	{
 		$this->shouldHaveType('CookBook\Markdown\HtmlMarkdownConverter');
 	}
