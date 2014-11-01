@@ -10,7 +10,6 @@ class EventServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app['events']->listen('recipe.viewed', 'CookBook\Events\RecipeViewed@handle');
-		$this->app['events']->listen('recipe.created', 'CookBook\Events\RecipeMailer@handle');
 	}
 
 }
