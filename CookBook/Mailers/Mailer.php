@@ -27,10 +27,10 @@ abstract class Mailer {
 	 */
 	protected function sendTo(Contactable $user, $subject, $view, $data = [])
 	{
-		return $this->mail->queue($view, $data, function($message) use ($user, $subject) {
-              $message->subject($subject)
-                      ->to($user->getEmailAddress());
-		});
+    return $this->mail->queue($view, $data, function($message) use ($user, $subject) {
+				$message->subject($subject)
+     						->to($user->getEmailAddress());
+     });
 	}
 
 }
