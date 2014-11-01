@@ -6,15 +6,15 @@ class RecipeMailer extends Mailer {
 
 	/**
 	 * @param Contactable  $user
-	 * @param array $data
+	 * @param array $recipe
 	 * @return mixed
 	 */
-	public function recipePublished(Contactable $user, $data = [])
+	public function recipePublished(Contactable $user, $recipe)
 	{
 		$view = 'emails.recipe.published';
 		$subject = "[Laravel Cookbook] - Recipe Published";
 
-		return $this->sendTo($user, $subject, $view, $data);
+		return $this->sendTo($user, $subject, $view, $recipe);
 	}
 
 }

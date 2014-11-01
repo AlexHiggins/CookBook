@@ -7,7 +7,7 @@ class RecipeMailer {
 	 */
 	public function handle($recipe)
 	{
-		// @TODO
+		//
 	}
 
 }

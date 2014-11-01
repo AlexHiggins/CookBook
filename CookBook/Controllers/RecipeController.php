@@ -81,6 +81,8 @@ class RecipeController extends BaseController {
 		$this->recipeForm->validate($recipe);
 		$recipe = $this->recipe->create($recipe);
 
+		$this->dispatcher->fire('recipe.created', $recipe);
+
 		return $this->redirectRoute('recipe.show', $recipe->slug);
 	}
 
