@@ -90,3 +90,4 @@ Route::filter('csrf', function()
 });
 
 Route::filter('recipe.owner', 'CookBook\Filters\RecipeOwner');
+Route::filter('profile.owner', 'CookBook\Filters\ProfileOwner');

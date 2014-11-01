@@ -43,6 +43,16 @@ class UserRepositoryTest extends \Codeception\TestCase\Test {
 	}
 
 	/** @test */
+	public function it_updates_a_users_profile()
+	{
+		$user = Factory::create('CookBook\Accounts\User', ['email' => 'foo@example.com']);
+		$this->assertEquals('foo@example.com', $user->email);
+
+		$user = $this->repo->update($user, ['email' => 'dave@example.com']);
+		$this->assertEquals('dave@example.com', $user->email);
+	}
+
+	/** @test */
 	public function it_hashes_passwords_on_creation()
 	{
 		$user = Factory::create('CookBook\Accounts\User', ['password' => 'foo']);

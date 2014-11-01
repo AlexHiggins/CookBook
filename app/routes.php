@@ -2,6 +2,8 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'CookBook\Controllers\HomeController@index']);
 
+Route::get('search', ['as' => 'search.index', 'uses' => 'CookBook\Controllers\SearchController@index']);
+
 Route::get('login', ['as' => 'login', 'uses' => 'CookBook\Controllers\Auth\SessionsController@index']);
 Route::post('login', ['as' => 'login', 'uses' => 'CookBook\Controllers\Auth\SessionsController@store']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'CookBook\Controllers\Auth\SessionsController@destroy']);
@@ -14,7 +16,7 @@ Route::resource('recipe', 'CookBook\Controllers\RecipeController', ['except' => 
 Route::get('tags', ['as' => 'tag', 'uses' => 'CookBook\Controllers\TagController@index']);
 Route::get('tags/{slug}', ['as' => 'tag.show', 'uses' => 'CookBook\Controllers\TagController@show']);
 
-Route::get('profile/{username}', ['as' => 'profile.show', 'uses' => 'CookBook\Controllers\ProfileController@show']);
-Route::get('search', ['as' => 'search.index', 'uses' => 'CookBook\Controllers\SearchController@index']);
+Route::resource('user', 'CookBook\Controllers\UserController', ['except' => ['index', 'destroy']]);
+
 
 Route::controller('password', 'CookBook\Controllers\Auth\RemindersController');

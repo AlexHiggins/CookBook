@@ -7,7 +7,7 @@ $I->wantTo('I can view a users profile and their recipes');
 $I->amOnPage('/');
 $I->see($recipe->user->username, '.white-box');
 $I->click($recipe->user->username, '.white-box');
-$I->amOnPage("/profile/{$recipe->user->username}");
+$I->amOnPage("/user/{$recipe->user->username}");
 
 $I->see('Recipes', '.page-title');
 $I->see($recipe->user->username, '.username');
