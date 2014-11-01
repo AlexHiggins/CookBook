@@ -13,7 +13,7 @@
 
       <div class="white-box">
 
-				{{ Form::model($user, ['method' => 'PATCH', 'route' => ['user.update', $user->username]]) }}
+        {{ Form::model($user, ['method' => 'PATCH', 'route' => ['user.update', $user->username]]) }}
 
           <div class="form-group">
             {{ Form::label('email','Email:') }}
