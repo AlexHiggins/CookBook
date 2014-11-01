@@ -13,3 +13,18 @@
   margin-right: 5px;
   margin-bottom: 5px;
 }
+
+.recipe-title-container {
+  padding-left: 15px;
+  .title {
+    padding-bottom: 0!important;
+  }
+}
+
+.recipe-description {
+  padding-bottom: 5px;
+}
+
+.recipe-container .white-box{
+  padding-bottom: 0;
+}
