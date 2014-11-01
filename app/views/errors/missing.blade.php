@@ -11,12 +11,6 @@
 		</div>
 	</div>
 
-	<div class="row text-center">
-		<div class="col-md-12">
-			{{ HTML::image('images/not-found.png', '404 image', ['class' => 'responsive not-found-image']) }}
-		</div>
-	</div>
-
 </div>
 
 @stop
