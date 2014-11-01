@@ -15,7 +15,10 @@ class UpdateProfileForm extends FormValidator {
 	 */
 	public function validate($formData)
 	{
-		$this->rules = ['email' => 'required|email|unique:users,email,'.Auth::user()->id];
+		$this->rules = [
+			'password' => 'confirmed|min:8',
+			'email' => 'required|email|unique:users,email,'.Auth::user()->id
+		];
 
 		return parent::validate($formData);
 	}
