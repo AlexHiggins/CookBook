@@ -10,7 +10,7 @@
         <div class="information-container">
 
           <div class="user-image">
-            @include('users.gravatar')
+            @include('user.gravatar')
           </div>
 
           <div class="recipe-title-container">

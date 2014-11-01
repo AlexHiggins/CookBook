@@ -2,7 +2,7 @@
 
 use CookBook\Recipes\RecipeRepository;
 
-class RecipeSubscriber {
+class RecipeViewed {
 
 	/**
 	 * @var RecipeRepository
@@ -23,7 +23,7 @@ class RecipeSubscriber {
 	 * @param $recipe
 	 * @return \CookBook\Recipes\Recipe
 	 */
-	public function recipeViewed($recipe)
+	public function handle($recipe)
 	{
 		return $this->recipe->increaseViewCount($recipe);
 	}

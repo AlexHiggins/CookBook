@@ -7,10 +7,11 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use Laracasts\Presenter\PresentableTrait;
+use CookBook\Contracts\Contactable;
 
-class User extends Model implements UserInterface, RemindableInterface {
+class User extends Model implements UserInterface, RemindableInterface, Contactable {
 
-	use UserTrait, RemindableTrait, PresentableTrait;
+	use UserTrait, RemindableTrait, PresentableTrait, ContactableTrait;
 
 	/**
 	 * The attributes excluded from the model's JSON form.

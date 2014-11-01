@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d31b16ffe64a4249e6e3a0861c9b4043",
+    "hash": "022f94c539447ed5ea83e58657becdcb",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cviebrock/eloquent-sluggable.git",
-                "reference": "450a4529ec0fbceeda09fff5388132d27d9497f4"
+                "reference": "e8f08160cc0e69bcf50acc0d2bd7fd26f89aa958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/450a4529ec0fbceeda09fff5388132d27d9497f4",
-                "reference": "450a4529ec0fbceeda09fff5388132d27d9497f4",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/e8f08160cc0e69bcf50acc0d2bd7fd26f89aa958",
+                "reference": "e8f08160cc0e69bcf50acc0d2bd7fd26f89aa958",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "laravel",
                 "slug"
             ],
-            "time": "2014-10-13 22:32:33"
+            "time": "2014-10-31 21:34:40"
         },
         {
             "name": "d11wtq/boris",
@@ -139,16 +139,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "9f451fbc7b8cad5e71300672c340c28c6bec09ff"
+                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/9f451fbc7b8cad5e71300672c340c28c6bec09ff",
-                "reference": "9f451fbc7b8cad5e71300672c340c28c6bec09ff",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
                 "shasum": ""
             },
             "require": {
@@ -193,7 +193,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2014-07-11 05:56:54"
+            "time": "2014-10-26 09:05:09"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -836,6 +836,48 @@
                 "utf8"
             ],
             "time": "2014-08-05 08:00:32"
+        },
+        {
+            "name": "pda/pheanstalk",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pda/pheanstalk.git",
+                "reference": "ab006cf9330fb5d3799f30a5d9841b85edb40a0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pda/pheanstalk/zipball/ab006cf9330fb5d3799f30a5d9841b85edb40a0f",
+                "reference": "ab006cf9330fb5d3799f30a5d9841b85edb40a0f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pheanstalk": "classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Annesley",
+                    "email": "paul@annesley.cc",
+                    "homepage": "http://paul.annesley.cc/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP client for beanstalkd queue",
+            "homepage": "https://github.com/pda/pheanstalk",
+            "keywords": [
+                "beanstalkd"
+            ],
+            "time": "2013-04-03 09:15:34"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2041,22 +2083,23 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "v0.4",
+            "version": "v0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "342df507312ea5ae5337be47e16e4268d7ed661f"
+                "reference": "fab0b484142430f4f598baef45680f945a60eb4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/342df507312ea5ae5337be47e16e4268d7ed661f",
-                "reference": "342df507312ea5ae5337be47e16e4268d7ed661f",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/fab0b484142430f4f598baef45680f945a60eb4f",
+                "reference": "fab0b484142430f4f598baef45680f945a60eb4f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.19"
             },
             "require-dev": {
+                "phpdocumentor/phpdocumentor": "2.*",
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
@@ -2077,7 +2120,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2014-02-21 18:22:11"
+            "time": "2014-10-28 20:04:04"
         },
         {
             "name": "fzaninotto/faker",

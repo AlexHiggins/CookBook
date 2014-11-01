@@ -29,6 +29,25 @@ class UserRepository extends EloquentRepository {
 	}
 
 	/**
+	 * @param User $user
+	 * @param      $data
+	 * @return User
+	 */
+	public function update(User $user, $data)
+	{
+		$user->email = $data['email'];
+
+		if (!empty($data['password']))
+		{
+			$user->password = $data['password'];
+		}
+
+		$user->save();
+
+		return $user;
+	}
+
+	/**
 	 * @param $username
 	 * @return mixed
 	 */

@@ -1,7 +1,7 @@
 <div class="information-container">
 
   <div class="user-image">
-    @include('users.gravatar', ['user' => $recipe->user])
+    @include('user.gravatar', ['user' => $recipe->user])
   </div>
 
   <div class="recipe-title-container">

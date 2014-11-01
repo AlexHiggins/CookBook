@@ -36,3 +36,12 @@ $navbar-brand: #4b4b4b;
   font-size: 1em;
   text-transform: uppercase;
 }
+
+.caret {
+  margin-left: 10px;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #fff;
+  color: $theme-colour !important;
+}
