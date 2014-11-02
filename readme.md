@@ -21,10 +21,3 @@ Run vendor/bin/codecept run; vendor/bin/phpspec run
 ## Contributing
 
 Feel free to contribute features / bug fixes. 
-
-## Development Schedule
-
-1. Adding a rating system
-2. Sort ordering on recipes (most popular, highest rated...)
-3. Github Authentication
-4. Notifications when a recipe is posted (twitter, email)
